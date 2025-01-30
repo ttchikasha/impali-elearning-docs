@@ -1,129 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impali E-Learning Platform Documentation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #f5f5f5;
-        }
+# Impali Primary School E-Learning Platform Documentation
 
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+**Last updated**: 30 January 2025
 
-        h1, h2 {
-            color: #2c3e50;
-        }
+---
 
-        .section {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-left: 4px solid #3498db;
-            background-color: #f8f9fa;
-        }
+## Technical Specifications
 
-        code {
-            background-color: #e9ecef; /* Light background for inline code */
-            padding: 2px 5px;
-            border-radius: 3px;
-            color: #333; /* Dark text for inline code */
-            font-family: Consolas, monospace;
-        }
+- **Ruby Version**: 3.0.0
+- **Rails Version**: 6.1.7
+- **Database**: PostgreSQL 15
+- **Key Dependencies**:
 
-        pre {
-            background-color: #2d2d2d; /* Dark background for code blocks */
-            color: #f8f9fa; /* Light text for code blocks */
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: Consolas, monospace;
-        }
+  | Dependency | Version | Purpose          |
+  |------------|---------|------------------|
+  | Devise     | 4.8.1   | Authentication   |
+  | Sidekiq    | 6.5.8   | Background Jobs  |
+  | Redis      | 4.8.0   | Caching/Jobs     |
 
-        pre code {
-            background-color: transparent; /* Remove background for code inside <pre> */
-            padding: 0;
-            color: inherit; /* Inherit light text color from <pre> */
-        }
+---
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
+## Setup Instructions
 
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+### Fresh Environment Setup
 
-        th {
-            background-color: #f2f2f2;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Impali Primary School E-Learning Platform Documentation</h1>
-        <p>Last updated: 30 January 2025</p>
-
-        <div class="section">
-            <h2>Technical Specifications</h2>
-            <ul>
-                <li><strong>Ruby Version:</strong> 3.0.0</li>
-                <li><strong>Rails Version:</strong> 6.1.7</li>
-                <li><strong>Database:</strong> PostgreSQL 15</li>
-                <li><strong>Key Dependencies:</strong>
-                    <table>
-                        <tr>
-                            <th>Dependency</th>
-                            <th>Version</th>
-                            <th>Purpose</th>
-                        </tr>
-                        <tr>
-                            <td>Devise</td>
-                            <td>4.8.1</td>
-                            <td>Authentication</td>
-                        </tr>
-                        <tr>
-                            <td>Sidekiq</td>
-                            <td>6.5.8</td>
-                            <td>Background Jobs</td>
-                        </tr>
-                        <tr>
-                            <td>Redis</td>
-                            <td>4.8.0</td>
-                            <td>Caching/Jobs</td>
-                        </tr>
-                    </table>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Setup Instructions</h2>
-            <h3>Fresh Environment Setup</h3>
-            <pre><code>
+```bash
 # Install dependencies
 bundle install
 
@@ -134,51 +34,48 @@ rails db:seed
 
 # Start server
 rails server
-            </code></pre>
+```
 
-            <h3>Environment Variables</h3>
-            <pre><code>
+### Environment Variables
+
+```bash
 DATABASE_URL=postgresql://user:password@localhost/impali2024
 SECRET_KEY_BASE=your-rails-secret-key
 REDIS_URL=redis://localhost:6379/1
-            </code></pre>
-        </div>
+```
 
-        <div class="section">
-            <h2>Deployment Guide</h2>
-            <h3>Requirements</h3>
-            <ul>
-                <li>Ubuntu 20.04+ Server</li>
-                <li>2GB RAM minimum</li>
-                <li>PostgreSQL 13+</li>
-                <li>Redis 6+</li>
-            </ul>
+---
 
-            <h3>Production Deployment</h3>
-            <pre><code>
+## Deployment Guide
+
+### Requirements
+
+- Ubuntu 20.04+ Server
+- 2GB RAM minimum
+- PostgreSQL 13+
+- Redis 6+
+
+### Production Deployment
+
+```bash
 git clone https://github.com/ttchikasha/impali2024.git
 bundle install --without development test
 RAILS_ENV=production rails assets:precompile
 bundle exec sidekiq -e production
-            </code></pre>
-        </div>
+```
 
-        <div class="section" style="border-color: #e74c3c;">
-            <h2>Security Notes</h2>
-            <ul>
-                <li>Reset all test credentials from seeds.rb</li>
-                <li>Rotate SECRET_KEY_BASE before redeployment</li>
-                <li>Domain ownership maintained by Gigasoft Group</li>
-            </ul>
-        </div>
+---
 
-        <div class="section">
-            <h2>Contact</h2>
-            <p>Gigasoft Group Support:<br>
-            Email: <a href="mailto:admin@gigasoft.group">admin@gigasoft.group</a><br>
-            Phone: <a href="tel:+263772771375">+263 772 771 375</a> | 
-                  <a href="tel:+263719771375">+263 719 771 375</a></p>
-        </div>
-    </div>
-</body>
-</html>
+## Security Notes
+
+- Reset all test credentials from `seeds.rb`.
+- Rotate `SECRET_KEY_BASE` before redeployment.
+- Domain ownership maintained by Gigasoft Group.
+
+---
+
+## Contact
+
+**Gigasoft Group Support**  
+📧 [admin@gigasoft.group](mailto:admin@gigasoft.group)  
+📞 [+263 772 771 375](tel:+263772771375) | [+263 719 771 375](tel:+263719771375)
