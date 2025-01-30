@@ -15,6 +15,6 @@ Official technical documentation for Impali Primary School's Ruby on Rails e-lea
 
 ## View Documentation
 The documentation is hosted at:  
-[https://gigasoft-group.github.io/impali-elearning-docs/](https://gigasoft-group.github.io/impali-elearning-docs/)
+(https://github.com/ttchikasha/impali-elearning-docs/blob/main/impali-docs.md)
 
 ## Repository Structure
